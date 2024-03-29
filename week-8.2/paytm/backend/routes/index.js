@@ -3,6 +3,6 @@ const userRouter=require('./user')
 
 const router=Router()
 
-router.user('/user',userRouter)
+router.use('/user',userRouter)
 
 module.exports=router;
