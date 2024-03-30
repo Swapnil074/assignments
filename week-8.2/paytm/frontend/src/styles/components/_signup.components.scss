@@ -1,0 +1,41 @@
+.login-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    margin: auto;
+    margin-top: 15%;
+    .heading-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30rem;
+        p{
+            align-self: baseline;
+            margin-left: 7.35rem;
+            margin-bottom: 0.25rem;
+        }
+        input{
+            border-radius: 0.25rem;
+            border: 0.05rem solid rgb(76, 75, 75);
+            width:15rem;
+            height:1.5rem
+        }
+        .signup-button{
+            margin-top:0.75rem;
+            border-radius: 0.25rem;
+            border: 0.05rem solid rgb(76, 75, 75);
+            width:15.5rem;
+            height:2rem;
+            color: white;
+            background-color: black;
+        }
+    }
+
+}
