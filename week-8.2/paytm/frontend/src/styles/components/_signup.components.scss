@@ -20,12 +20,17 @@
             align-self: baseline;
             margin-left: 7.35rem;
             margin-bottom: 0.25rem;
+            font-weight: 600;
         }
         input{
             border-radius: 0.25rem;
             border: 0.05rem solid rgb(76, 75, 75);
             width:15rem;
             height:1.5rem
+
+        }
+        button{
+            cursor:pointer;
         }
         .signup-button{
             margin-top:0.75rem;

@@ -12,10 +12,10 @@ const balanceBody=zod.object({
 router.get('/balance',authMiddleware,async(req,res)=>{
     const userId=req.userId
     const account=await Account.findOne({
-        user:userId
+        userId:userId
     })
     res.status(200).json({
-        balance: account?.balance
+        balance: account.balance
     })
 })
 router.post('/transfer',authMiddleware,async(req,res)=>{

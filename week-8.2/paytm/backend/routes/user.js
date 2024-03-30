@@ -44,9 +44,10 @@ router.post("/signup", async (req, res) => {
     lastName: req.body.lastName,
     password: req.body.password,
   });
+  console.log(user)
   const userId = user._id;
   await Account.create({
-    user:userId,
+    userId:userId,
     balance:1+Math.random()*10000
   })
 
@@ -54,6 +55,10 @@ router.post("/signup", async (req, res) => {
   return res.status(200).json({
     message: "User created successfully",
     token: token,
+    userInfo:{
+      firstName:req.body.firstName,
+      lastName: req.body.lastName,
+    }
   });
 });
 
@@ -73,6 +78,10 @@ router.post("/signin", async (req, res) => {
     const token = jwt.sign({ userId }, JWT_SECRET);
     return res.status(200).json({
       token: token,
+      userInfo:{
+        firstName:user.firstName,
+        lastName: user.lastName,
+      }
     });
   }
   return res.status(411).json({
@@ -105,14 +114,10 @@ router.get("/bulk",authMiddleware,async (req,res)=>{
     const name=req.query.filter|| ""
 
     const users=await User.find({
-        $or:[{
-            firstName:{
-                "$regex": name
-            },
-            lastName:{
-                "$regex": name
-            },
-        }]
+      $or: [
+        { firstName: { "$regex": name, "$options": "i" } },
+        { lastName: { "$regex": name, "$options": "i" } },
+    ]
     })
     
     res.status(200).json({
